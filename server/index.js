@@ -25,6 +25,8 @@ app.get('/',(req,res)=>{
 
 // https://www.mongodb.com/cloud/atlas
 // mongoose.set('useFindAndModify',false);
+
+mongoose.set('strictQuery', true);
 mongoose.connect(process.env.CONNECTION_URL,{ useNewUrlParser:true,useUnifiedTopology:true})
                 .then(()=>{app.listen(port,()=>{console.log(`server running on:${port}`)});console.log(process.env.CONNECTION_URL,port)})
                 .catch((err)=>{console.log(process.env.CONNECTION_URL,port,"error")})
